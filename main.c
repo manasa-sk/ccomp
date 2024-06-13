@@ -3,10 +3,11 @@
 //#include <string.h>
 
 #include "lexer.h"
+#include "parser.h"
 
 int main(){
     FILE *file = fopen("test.unn", "r");
-    print_tokens(file);
-    getTokenNum();
+    Token *tokens = lexer(file);
+    Node *rootAst = parser(tokens);
     return 0;
 }
